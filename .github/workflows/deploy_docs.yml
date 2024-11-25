@@ -1,0 +1,32 @@
+name: Publish Docs
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout Code
+            uses: actions/checkout@v4
+
+          - name: Install Doxygen
+            run: sudo apt-get install -y doxygen graphviz
+
+          - name: Initialize Submodules
+            run: git submodule update --init --recursive
+
+          - name: Generate Docs
+            run: doxygen Doxyfile
+
+          - name: Deploy to GitHub Pages
+            uses: peaceiris/actions-gh-pages@v3
+            with:
+              github_token: ${{ secrets.GITHUB_TOKEN }}
+              publish_dir: ./docs/html
+              user_name: GitHub Actions
+              user_email: actions@github.com
+
+
