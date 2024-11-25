@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-
+      
 jobs:
     deploy:
         runs-on: ubuntu-latest
@@ -12,8 +12,11 @@ jobs:
           - name: Checkout Code
             uses: actions/checkout@v4
 
+          - name: Update apt-get
+            run: sudo apt-get update
+
           - name: Install Doxygen
-            run: sudo apt-get install -y doxygen graphviz
+            run: sudo apt install -y doxygen graphviz
 
           - name: Initialize Submodules
             run: git submodule update --init --recursive
