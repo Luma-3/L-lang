@@ -12,7 +12,14 @@ include_directories(include)
 
 add_compile_options(-Wall -Wextra -Wpedantic -Werror)
 
-add_executable(L-lang ${SOURCES})
+add_library(L-lang_lib STATIC ${SOURCES})
+
+target_include_directories(L-lang_lib PRIVATE include)
+
+add_executable(L-lang app/main.cc)
+
+target_link_libraries(L-lang PRIVATE L-lang_lib)
+
 
 # Doxygen
 find_package(Doxygen REQUIRED)

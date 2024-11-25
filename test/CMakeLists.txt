@@ -8,13 +8,19 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(googletest)
 
+set(SOURCE_OUT_MAIN )
+
 add_executable(tests
   test.cc
+  TokenStreamTest.cc
 )
 
 target_link_libraries(tests
   gtest_main
+  L-lang_lib
 )
+
+
 
 add_test(
   NAME run_tests
