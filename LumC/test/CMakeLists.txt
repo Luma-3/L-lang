@@ -6,9 +6,8 @@ FetchContent_Declare(
   GIT_TAG        v1.15.2
 )
 
-FetchContent_MakeAvailable(googletest)
 
-set(SOURCE_OUT_MAIN )
+FetchContent_MakeAvailable(googletest)
 
 add_executable(tests
   test.cc
@@ -18,6 +17,10 @@ add_executable(tests
 target_link_libraries(tests
   gtest_main
   L-lang_lib
+)
+
+target_include_directories(tests PRIVATE
+  ${LANG_COMPILER_DIR}/src
 )
 
 
