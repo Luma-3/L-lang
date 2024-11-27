@@ -1,4 +1,6 @@
 
+include(${CMAKE_CURRENT_SOURCE_DIR}/Doxygen.cmake)
+
 add_subdirectory(src/utils)
 
 add_executable(LumC ${L-LANG_COMPILER_MAIN})

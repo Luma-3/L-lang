@@ -6,7 +6,7 @@
 /*   By: jbrousse <jbrousse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 22:51:44 by jbrousse          #+#    #+#             */
-/*   Updated: 2024/11/24 23:46:34 by jbrousse         ###   ########.fr       */
+/*   Updated: 2024/11/27 21:49:04 by jbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@
 class Token
 {
   public:
+	/**
+	 * @brief Enum class representing the different types of tokens
+	 */
 	enum class Type {
 		IDENTIFIER,
 		NUMBER,
@@ -48,6 +51,15 @@ class Token
 	};
 
 	Token() = default;
+
+	/**
+	 * @brief Construct a new Token object
+	 *
+	 * @param type The type of the token
+	 * @param value The value of the token
+	 * @param line The line where the token is located
+	 * @param column The column where the token is located
+	 */
 	Token(Type type, std::string value = "", size_t line = 0,
 		  size_t column = 0) :
 		_type(type),
@@ -57,11 +69,39 @@ class Token
 
 	~Token() = default;
 
-	Type		getType() const { return _type; };
-	std::string getValue() const { return _value; };
-	size_t		getLine() const { return _line; };
-	size_t		getColumn() const { return _column; };
+	/**
+	 * @brief Get the type of the token
+	 *
+	 * @return Type The type of the token
+	 */
+	Type getType() const { return _type; };
 
+	/**
+	 * @brief Get the value of the token
+	 *
+	 * @return std::string The value of the token
+	 */
+	std::string getValue() const { return _value; };
+
+	/**
+	 * @brief Get the line where the token is located
+	 *
+	 * @return size_t The line where the token is located
+	 */
+	size_t getLine() const { return _line; };
+
+	/**
+	 * @brief Get the column where the token is located
+	 *
+	 * @return size_t The column where the token is located
+	 */
+	size_t getColumn() const { return _column; };
+
+	/**
+	 * @brief Overload the == operator to compare two tokens
+	 *
+	 * @param rhs The token to compare with
+	 */
 	bool operator==(const Token &rhs) const
 	{
 		return _type == rhs._type && _value == rhs._value;

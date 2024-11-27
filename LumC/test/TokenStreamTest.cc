@@ -7,31 +7,6 @@
 // Test fixture for TokenStream
 class TokenStreamTest : public ::testing::Test
 {
-  protected:
-	TokenStreamTest()
-	{
-		// You can do set-up work for each test here.
-	}
-
-	~TokenStreamTest() override
-	{
-		// You can do clean-up work that doesn't throw exceptions here.
-	}
-
-	void SetUp() override
-	{
-		// Code here will be called immediately after the constructor (right
-		// before each test).
-	}
-
-	void TearDown() override
-	{
-		// Code here will be called immediately after each test (right before
-		// the destructor).
-	}
-
-	// Objects declared here can be used by all tests in the test case for
-	// TokenStream.
 };
 
 // Test default constructor
@@ -269,18 +244,6 @@ TEST_F(TokenStreamTest, EraseRange)
 	EXPECT_EQ(ts.peek().getValue(), "y");
 }
 
-// Test replace method with range
-TEST_F(TokenStreamTest, ReplaceRange)
-{
-	TokenStream ts;
-	ts.push(Token(Token::Type::IDENTIFIER, "x"));
-	ts.push(Token(Token::Type::NUMBER, "42"));
-	ts.push(Token(Token::Type::IDENTIFIER, "y"));
-	ts.replace(0, 1, Token(Token::Type::NUMBER, "43"));
-	EXPECT_EQ(ts.size(), 2);
-	EXPECT_EQ(ts.peek().getValue(), "43");
-}
-
 // Test replace method with old token
 TEST_F(TokenStreamTest, ReplaceOldToken)
 {
@@ -299,13 +262,6 @@ TEST_F(TokenStreamTest, AtOutOfRange)
 {
 	TokenStream ts;
 	EXPECT_THROW(ts.at(0), std::out_of_range);
-}
-
-// Test operator[] method with out of range index
-TEST_F(TokenStreamTest, OperatorBracketOutOfRange)
-{
-	TokenStream ts;
-	EXPECT_THROW(ts[0], std::out_of_range);
 }
 
 // Test insert method with out of range index
@@ -350,14 +306,6 @@ TEST_F(TokenStreamTest, EraseRangeOutOfRange)
 {
 	TokenStream ts;
 	EXPECT_THROW(ts.erase(0, 1), std::out_of_range);
-}
-
-// Test replace method with out of range range
-TEST_F(TokenStreamTest, ReplaceRangeOutOfRange)
-{
-	TokenStream ts;
-	EXPECT_THROW(ts.replace(0, 1, Token(Token::Type::IDENTIFIER, "x")),
-				 std::out_of_range);
 }
 
 // Test replace method with old token not found

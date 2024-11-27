@@ -1,23 +1,27 @@
-BUILD_DIR="${1:-build}"
 
-LUMC_DIR="LumC"
+run_test() {
+	echo "Running test..."
+	(cd $1 && ctest --output-on-failure)
+}
 
-if [ ! -d "$BUILD_DIR" ]; then
-	echo "Error: build directory '$BUILD_DIR' does not exist"
+
+usage() {
+	echo "Usage: $0 <Project-name> [Build-dir]"
+	exit 1
+}
+
+if [ $# -lt 1 ]; then
+	usage
+fi
+
+PROJECT=$1
+BUILD_DIR=${2:-build}
+
+PATH_BUILD=$BUILD_DIR/$PROJECT
+
+if [ ! -d $PATH_BUILD ]; then
+	echo "Build directory not found: $PATH_BUILD"
 	exit 1
 fi
 
-TEST_DIR=$(find "$BUILD_DIR" -name "CTestTestfile.cmake" -exec dirname {} \;)
-
-
-if [ -z "$TEST_DIR" ]; then
-	echo "Error: Could not find test directory in '$BUILD_DIR'"
-	exit 1
-fi
-
-echo "Running tests in '$TEST_DIR'"
-
-for test in $TEST_DIR; do
-	echo "Running test in '$test'"
-	(cd "$test" && ctest --output-on-failure)
-done
+run_test $PATH_BUILD

@@ -6,7 +6,7 @@ include(${CMAKE_SOURCE_DIR}/cmake/option.cmake)
 
 # Modules
 include(${CMAKE_SOURCE_DIR}/cmake/StaticAnalyse.cmake)
-include(${CMAKE_SOURCE_DIR}/cmake/Doxygen.cmake)
+# include(${CMAKE_SOURCE_DIR}/cmake/Doxygen.cmake)
 
 
 if (L-LANG_BUILD_COMPILER)
