@@ -16,17 +16,17 @@ add_executable(tests
 
 target_link_libraries(tests
   gtest_main
-  L-lang_lib
+  Utils
 )
 
-target_include_directories(tests PRIVATE
-  ${LANG_COMPILER_DIR}/src
-)
+# target_include_directories(tests PRIVATE
+#   ${LANG_COMPILER_DIR}/src
+# )
 
 
 
 add_test(
   NAME run_tests
   COMMAND tests
-  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+  WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
 )

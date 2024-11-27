@@ -1,4 +1,4 @@
-#include "utils/TokenStream.hh"
+#include "TokenStream.hh"
 
 #include <gtest/gtest.h>
 
