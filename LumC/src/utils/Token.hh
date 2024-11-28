@@ -6,12 +6,12 @@
 /*   By: jbrousse <jbrousse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 22:51:44 by jbrousse          #+#    #+#             */
-/*   Updated: 2024/11/27 21:49:04 by jbrousse         ###   ########.fr       */
+/*   Updated: 2024/11/27 23:01:31 by jbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TOKEN_HH
-#define TOKEN_HH
+#ifndef LUMC_UTILS_TOKEN_HH
+#define LUMC_UTILS_TOKEN_HH
 
 #include <string>
 #include <vector>
@@ -114,4 +114,4 @@ class Token
 	size_t		_column;
 };
 
-#endif // TOKEN_HH
+#endif // LUMC_UTILS_TOKEN_HH

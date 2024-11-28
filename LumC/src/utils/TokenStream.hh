@@ -6,12 +6,12 @@
 /*   By: jbrousse <jbrousse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 23:04:16 by jbrousse          #+#    #+#             */
-/*   Updated: 2024/11/27 22:24:36 by jbrousse         ###   ########.fr       */
+/*   Updated: 2024/11/27 22:33:02 by jbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TOKENSTREAM_HH
-#define TOKENSTREAM_HH
+#ifndef LUMC_UTILS_TOKENSTREAM_HH
+#define LUMC_UTILS_TOKENSTREAM_HH
 
 #include <cstddef>
 #include <vector>
@@ -454,4 +454,4 @@ class TokenStream
 	iterator end() { return iterator(this, size()); };
 };
 
-#endif
+#endif // LUMC_UTILS_TOKENSTREAM_HH

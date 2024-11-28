@@ -3,4 +3,4 @@ set(UTILS_SOURCES
 )
 
 add_library(Utils STATIC ${UTILS_SOURCES})
-target_include_directories(Utils PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+# target_include_directories(Utils PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

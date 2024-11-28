@@ -7,6 +7,8 @@
 // Test fixture for TokenStream
 class TokenStreamTest : public ::testing::Test
 {
+	  protected:
+	TokenStreamTest() = default;
 };
 
 // Test default constructor

@@ -1,7 +1,9 @@
 {
 	"files.associations": {
 		"*.tpp": "cpp",
-		"vector": "cpp"
+		"vector": "cpp",
+		"string": "cpp",
+		"istream": "cpp"
 	},
 	"C_Cpp.default.compilerPath": "/usr/bin/clang++-18"
 }
